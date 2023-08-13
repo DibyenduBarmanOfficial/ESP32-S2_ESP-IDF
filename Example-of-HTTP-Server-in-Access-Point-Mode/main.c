@@ -310,8 +310,6 @@ static void wifi_event_handler(void* arg, esp_event_base_t event_base, int32_t e
 
 esp_err_t wifi_init_softap(void)
 {
-    //esp_netif_init();
-    //ESP_ERROR_CHECK(esp_event_loop_create_default());
     esp_netif_create_default_wifi_ap();
 
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
@@ -349,7 +347,6 @@ void app_main(void)
     ESP_LOGI(TAG, "NVS init");
     ESP_ERROR_CHECK(nvs_flash_init());
     ESP_ERROR_CHECK(esp_netif_init());
-    //esp_netif_init();
     
     ESP_LOGI(TAG, "Eventloop create");
     ESP_ERROR_CHECK(esp_event_loop_create_default());
@@ -358,7 +355,7 @@ void app_main(void)
      * Read "Establishing Wi-Fi or Ethernet Connection" section in
      * examples/protocols/README.md for more information about this function.
      */
-    //ESP_ERROR_CHECK(example_connect());
+   
     ESP_LOGI(TAG, "init softAP");
     ESP_ERROR_CHECK(wifi_init_softap());
 
